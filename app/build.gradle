@@ -9,12 +9,26 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'java'
 }
+
+jar {
+    // Define the main class for the application.
+    manifest {
+        attributes(
+            'Main-Class': 'simple.gradle.java.project.App'
+            
+        )
+    }
+
+}
+
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
+
 
 dependencies {
     // Use JUnit Jupiter for testing.
@@ -22,6 +36,14 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    // Used for Spring Annotations, REST API, etc.
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.0'
+
+ 
+
+
 }
 
 application {
